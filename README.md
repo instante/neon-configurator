@@ -17,6 +17,23 @@ or running through simple php file included in composer bin.
 <project root>$ vendor/bin/update-neon app/config/local.neon parameters.webmasterEmail john@doe.com
 ```
 
+Field types are parsed and written back as NEON values.
+Note that shell consumes quotes, so you have to backslash them if you
+want to actually insert a string.
+like in this example:
+
+```
+$ vendor/bin/update-neon demo.neon foo yes
+$ vendor/bin/update-neon demo.neon bar "yes"
+$ vendor/bin/update-neon demo.neon baz \"yes\"
+```
+results in
+```
+foo: true
+bar: true
+baz: "yes"
+```
+
 ## Requirements
 
 - PHP 5.6 or higher
@@ -32,5 +49,4 @@ $ composer require instante/neon-configurator
 
 ## Caveats
 
-* The utility is currently unable to preserve comments and drops all of them.
-
+* The utility is currently unable to preserve comments and drops all of them. 
