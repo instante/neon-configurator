@@ -34,6 +34,9 @@ class NeonEditor
         }
         $this->indent = $indent;
         $this->data = Neon::decode($rawNeon);
+        if (!is_array($this->data)) {
+            $this->data = [];
+        }
     }
 
     public function setByKey($key, $value)
