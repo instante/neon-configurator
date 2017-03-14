@@ -25,7 +25,7 @@ class NeonEditor
         flock($this->file, LOCK_EX);
         $rawNeon = fread($this->file, filesize($filename));
         if ($indent === null) {
-            if (preg_match('~^\s+~m', $rawNeon, $m)) {
+            if (preg_match('~^[\t ]+(?!$)~m', $rawNeon, $m)) {
                 $indent = $m[0];
             } else {
                 $indent = "\t";
