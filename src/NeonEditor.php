@@ -23,7 +23,8 @@ class NeonEditor
     {
         $this->file = fopen($filename, 'r+');
         flock($this->file, LOCK_EX);
-        $rawNeon = fread($this->file, filesize($filename));
+        $size = filesize($filename);
+        $rawNeon = $size > 0 ? fread($this->file, filesize($filename)) : '';
         if ($indent === null) {
             if (preg_match('~^[\t ]+(?!$)~m', $rawNeon, $m)) {
                 $indent = $m[0];
@@ -46,6 +47,7 @@ class NeonEditor
             }
             $section = &$section[$keyPart];
         }
+        $value = $this->processType($value);
         $section[$endKey] = $value;
     }
 
@@ -69,5 +71,10 @@ class NeonEditor
             $neonString = str_replace("\t", $this->indent, $neonString);
         }
         return $neonString;
+    }
+
+    private function processType($value)
+    {
+        return Neon::decode($value); //decode native Neon value
     }
 }
