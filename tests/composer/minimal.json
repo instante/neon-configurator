@@ -1,0 +1,7 @@
+{
+    "require-dev": {
+        "~CLEAR": [
+            "kdyby/console"
+        ]
+    }
+}

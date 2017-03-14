@@ -1,0 +1,30 @@
+{
+    "name": "instante/neon-configurator",
+    "type": "library",
+    "description": "Instante NEON configurator is a command-line utility to update NEON files.",
+    "keywords": [
+        "nette",
+        "instante"
+    ],
+    "license": [
+        "BSD-3-Clause",
+        "GPL-2.0",
+        "GPL-3.0"
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "nette/neon": "~2.4"
+    },
+    "require-dev": {
+        "instante/php-test-suite": "@dev",
+        "kdyby/console": "@dev"
+    },
+    "suggest": {
+        "kdyby/console": "to use neon configurator as a console command"
+    },
+    "autoload": {
+        "psr-4": {
+            "Instante\\NeonConfigurator\\": "src/"
+        }
+    }
+}
