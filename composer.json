@@ -17,6 +17,7 @@
     },
     "require-dev": {
         "instante/php-test-suite": "@dev",
+        "jakub-onderka/php-parallel-lint": "~0.9",
         "kdyby/console": "@dev"
     },
     "suggest": {
